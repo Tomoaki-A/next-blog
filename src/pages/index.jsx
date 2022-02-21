@@ -1,23 +1,7 @@
 import Head from "next/head";
-import { client } from "src/utils/client";
-import { useEffect } from "react";
-import { useState } from "react";
 import Link from "next/link";
 
 export default function Home() {
-  const [posts, setPosts] = useState([]);
-
-  const getData = async () => {
-    const data = await client.get({ endpoint: "posts" });
-    setPosts(data.contents);
-  };
-
-  useEffect(() => {
-    getData();
-  }, []);
-
-  console.log(posts);
-
   return (
     <div>
       <Head>
@@ -26,17 +10,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <ul>
-        {posts.map((post) => {
-          return (
-            <li key={post.id}>
-              <Link href={post.id}>
-                <a>{post.title}</a>
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
+      <main>
+        <h1>
+          トップページ
+        </h1>
+      </main>
     </div>
   );
 }
