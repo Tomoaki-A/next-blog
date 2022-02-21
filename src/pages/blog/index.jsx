@@ -4,7 +4,7 @@ import { useState } from "react";
 import PostList from "src/components/Post/PostList";
 import { client } from "src/utils/client";
 
-export default function Home() {
+export default function BlogList() {
   const [posts, setPosts] = useState([]);
 
   const useFetchPosts = async () => {
