@@ -1,14 +1,22 @@
 import Head from "next/head";
-import useSWR from "swr";
+import { client } from "src/utils/client";
+import { useEffect } from "react";
+import { useState } from "react";
+import Link from "next/link";
 
 export default function Home() {
-  // const { data, error } = useSWR("https://jsonplaceholder.typicode.com/users");
+  const [posts, setPosts] = useState([]);
 
-  // if (!data && !error) {
-  //   return <div>Loading...</div>;
-  // }
+  const getData = async () => {
+    const data = await client.get({ endpoint: "posts" });
+    setPosts(data.contents);
+  };
 
-  // if (error) return <div>failed to load</div>;
+  useEffect(() => {
+    getData();
+  }, []);
+
+  console.log(posts);
 
   return (
     <div>
@@ -18,7 +26,17 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>Hello</main>
+      <ul>
+        {posts.map((post) => {
+          return (
+            <li key={post.id}>
+              <Link href={post.id}>
+                <a>{post.title}</a>
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 }
