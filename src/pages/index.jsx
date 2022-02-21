@@ -2,15 +2,13 @@ import Head from "next/head";
 import useSWR from "swr";
 
 export default function Home() {
-  const { data, error } = useSWR("https://jsonplaceholder.typicode.com/users");
+  // const { data, error } = useSWR("https://jsonplaceholder.typicode.com/users");
 
-  console.log({ data, error });
+  // if (!data && !error) {
+  //   return <div>Loading...</div>;
+  // }
 
-  if (!data && !error) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) return <div>failed to load</div>;
+  // if (error) return <div>failed to load</div>;
 
   return (
     <div>
@@ -20,10 +18,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <h1>{data[0].name}</h1>
-        <p>{data[0].email}</p>
-      </main>
+      <main>Hello</main>
     </div>
   );
 }
