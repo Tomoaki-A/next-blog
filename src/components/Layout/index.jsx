@@ -7,7 +7,7 @@ const Layout = ({ children }) => {
       <Header />
       <div className="flex pt-16">
         <SideNav />
-        <div className="bg-neutral-800 flex-grow overflow-y-scroll px-32 py-16">
+        <div className="bg-neutral-800 flex-grow h-[calc(100vh-4rem)] overflow-y-scroll px-32 py-16">
           {children}
         </div>
       </div>
