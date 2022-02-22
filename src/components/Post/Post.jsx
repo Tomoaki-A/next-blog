@@ -1,25 +1,6 @@
-import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
-import { client } from "src/utils/client";
 import classes from "./post.module.scss";
 
-const Post = () => {
-  const router = useRouter();
-  const [article, setArticle] = useState();
-
-  useEffect(() => {
-    const fetchArticle = async () => {
-      console.log(router.query.id);
-      const data = await client.get({
-        endpoint: `posts`,
-        contentId: router.query.id,
-      });
-      setArticle(data);
-      console.log(data);
-    };
-    fetchArticle();
-  }, [router]);
-
+const Post = ({ article }) => {
   if (!article) {
     return <div></div>;
   }

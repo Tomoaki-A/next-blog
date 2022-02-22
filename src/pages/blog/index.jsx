@@ -2,14 +2,18 @@ import Head from "next/head";
 import { useEffect } from "react";
 import { useState } from "react";
 import PostList from "src/components/Post/PostList";
-import { client } from "src/utils/client";
 
 export default function BlogList() {
   const [posts, setPosts] = useState([]);
 
   const fetchPosts = async () => {
-    const data = await client.get({ endpoint: "posts" });
-    setPosts(data.contents);
+    const res = await fetch("https://next-blog1.microcms.io/api/v1/posts",{
+      headers: {
+        "X-MICROCMS-API-KEY": process.env.API_KEY,
+      },
+    });
+    const posts = await res.json();
+    setPosts(posts.contents);
   };
 
   useEffect(() => {
