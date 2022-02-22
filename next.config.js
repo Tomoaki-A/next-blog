@@ -7,5 +7,8 @@ module.exports = {
   nextConfig,
   env:{
     API_KEY: process.env.API_KEY,
+  },
+  images:{
+    domains: ["images.microcms-assets.io"],
   }
 }

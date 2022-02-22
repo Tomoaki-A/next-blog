@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from 'next/image'
 
 const PostList = ({posts}) => {
   return (
@@ -10,10 +11,12 @@ const PostList = ({posts}) => {
               <a>
                 <div className="w-80 ">
                   <div className="h-48">
-                    <img
+                    <Image
                       className="block w-full h-full rounded-t-3xl"
                       src={post.image.url}
                       alt=""
+                      width={320}
+                      height={192}
                     />
                   </div>
                   <div>
