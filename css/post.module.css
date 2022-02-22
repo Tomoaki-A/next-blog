@@ -20,10 +20,11 @@
   page-break-after: avoid;
 }
 .textarea pre {
-  background-color: #151620;
+  background-color: #424242;
   padding: 2rem;
   margin: 1rem;
   border-radius: 0.5rem;
+  overflow-x: scroll;
 }
 
 .heading {
