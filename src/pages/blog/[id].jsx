@@ -6,18 +6,16 @@ const Article = () => {
   const router = useRouter();
   const [article, setArticle] = useState({});
 
-  const useFetchArticle = async () => {
-    if (router.query.id) {
+  useEffect(() => {
+    const fetchArticle = async () => {
+      console.log(router.query.id);
       const data = await client.get({
         endpoint: `posts`,
         contentId: router.query.id,
       });
       setArticle(data);
-    }
-  };
-
-  useEffect(() => {
-    useFetchArticle();
+    };
+    fetchArticle();
   }, [router]);
 
   if (!article) {
@@ -26,7 +24,7 @@ const Article = () => {
   return (
     <div>
       <h1>{article.title}</h1>
-      <div>{article.body}</div>
+      <div dangerouslySetInnerHTML={{ __html: article.body }} />
     </div>
   );
 };
