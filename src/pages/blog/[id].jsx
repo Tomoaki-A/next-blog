@@ -1,4 +1,4 @@
-import Post from "src/components/Post/post";
+import Post from "src/components/Post/Post";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
