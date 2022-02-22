@@ -1,5 +1,5 @@
 import Post from "src/components/Post/post";
-import { Router, useRouter } from "next/router";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 const Article = () => {
