@@ -9,7 +9,7 @@ export default function BlogList() {
   const fetchPosts = async () => {
     const res = await fetch("https://next-blog1.microcms.io/api/v1/posts",{
       headers: {
-        "X-MICROCMS-API-KEY": process.env.API_KEY,
+        "X-MICROCMS-API-KEY": process.env.NEXT_PUBLIC_API_KEY,
       },
     });
     const posts = await res.json();

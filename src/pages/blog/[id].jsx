@@ -14,7 +14,7 @@ const Article = () => {
           : null,
         {
           headers: {
-            "X-MICROCMS-API-KEY": process.env.API_KEY,
+            "X-MICROCMS-API-KEY": process.env.NEXT_PUBLIC_API_KEY,
           },
         }
       );
